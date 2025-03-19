@@ -61,16 +61,25 @@ export class ProjectService {
   }
 
   async update(id: number, updateProjectDto: UpdateProjectDto) {
-    return await prisma.project.update({
-      where: { id },
-      data: updateProjectDto,
-    });
+    try{
+      return await prisma.project.update({
+        where: { id },
+        data: updateProjectDto,
+      });
+    }catch(error){
+      console.log(error)
+    }
   }
 
   async remove(id: number) {
-    return await prisma.project.delete({
-      where: {id},
-    });
+    try{
+      if(this.findOne(id) == null)
+        return await prisma.project.delete({
+          where: {id},
+        });
+    }catch(error){
+      console.log(error)
+    }
   }
 }
 
