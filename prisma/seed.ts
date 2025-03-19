@@ -6,25 +6,25 @@ async function main() {
     const saltOrRounds = 10;
     const hash = await bcrypt.hash("12345", saltOrRounds);
     const user = {
-        email: "pedrodavila@terra.com.br",
-        name: 'pedro',
+        email: "leonardoms.2010@hotmail.com",
+        name: 'leo',
         password: hash,
         role: 'ADMIN',
-        matricula: "24106875",
+        matricula: "23200064",
         img_url: "https://avatars.githubusercontent.com/u/1?v=4",
-        course: "CC",
-        github: "PedroKleinDavila",
+        course: "ES",
+        github: "LeoMallets04",
         semester: "242",
         n_of_absences: 0,
         created_at: new Date(),
         projects: {
             create: [{
-                link: "https://api.github.com/repos/PedroKleinDavila/Scientific-Calculator",
+                link: "https://api.github.com/repos/LeoMallets04/Calculator",
                 sprint: 1,
             }]
         }
     }
-    const pedro = await prisma.user.create({
+    const leo = await prisma.user.create({
         data: user
     })
     const user1={
@@ -190,6 +190,7 @@ async function main() {
     const createcard5= await prisma.cards.create({
         data: card5
     })
+
     console.log(createcard1);
     console.log(createcard2);
     console.log(createcard3);
