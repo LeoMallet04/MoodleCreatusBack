@@ -36,7 +36,10 @@ export class GitTokenService {
             const repo_url = json_data.html_url ?? "";
 
 
-
+            //Essa parte aqui é para poder ver a quantidade total de requisições disponíveis
+            //É meramente para visualizar, caso não deseje pode só comentar mesmo
+            
+            //->
             const response_test = await axios.get("https://api.github.com/rate_limit", {
                 headers: {
                   Authorization: `token ${process.env.GITHUB_API_PERSONAL_TOKEN}`,
@@ -45,6 +48,7 @@ export class GitTokenService {
               });
               
             console.log("Rate limit info:", response_test.data);
+            //<-
 
             return {
             repo_name,
